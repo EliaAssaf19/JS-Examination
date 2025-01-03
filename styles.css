@@ -5,7 +5,7 @@ body {
     background-color: #990011;
     color: #FCF6F5;
 }
-
+/* Header Styling Start */
 header{
     color:#990011;
     background-color: #FCF6F5;
@@ -37,4 +37,40 @@ header{
 
 .logo{
     font-size: 2.5rem;
+}
+/* Header Styling End*/
+
+/* Main Styling Start */
+#featured-movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 5rem;
+    margin-top: 8rem;
+    row-gap: 9rem;
+    padding-left: 12rem;
+    color: #FCF6F5;
+}
+
+.hero-h2{
+    display: grid;
+    justify-content: center;
+    color: #FCF6F5;
+}
+
+.movie {
+    border-radius: 1rem;
+    
+    
+}
+
+.movie h3 {
+    font-size: 1.2rem; /* Större text för titeln */
+    margin: 10px 0 5px; /* Marginal ovanför och under */
+    color:#FCF6F5; /* Mörk textfärg */
+}
+
+.movie p {
+    margin: 5px 0; /* Marginal mellan paragrafer */
+    font-size: 0.9rem; /* Mindre textstorlek för år och typ */
+    color:#FCF6F5; /* Ljusare textfärg */
 }
