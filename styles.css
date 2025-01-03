@@ -55,6 +55,8 @@ header{
     display: grid;
     justify-content: center;
     color: #FCF6F5;
+    padding-top: 10rem;
+    font-size: 2rem;
 }
 
 .movie {
@@ -73,4 +75,38 @@ header{
     margin: 5px 0; /* Marginal mellan paragrafer */
     font-size: 0.9rem; /* Mindre textstorlek för år och typ */
     color:#FCF6F5; /* Ljusare textfärg */
+}
+
+
+
+
+
+
+#movie-details {
+    box-shadow: 0 4px 8px rgba(224, 184, 184, 0.2);
+    border-radius: 8px;
+    background-color:#FCF6F5;
+    color:#990011;
+}
+
+#movie-details img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color:#000000;
+    color:#FCF6F5;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+button:hover {
+    background-color:#FCF6F5;
+    color:#990011;
 }
