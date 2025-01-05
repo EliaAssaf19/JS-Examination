@@ -22,6 +22,7 @@ header{
     margin-right: 20rem;
     background-color:#FCF6F5;
     border-color: #990011;
+    margin-top: 1.2rem;
 }
 
 #watchlist-btn {
@@ -44,37 +45,51 @@ header{
 #featured-movies {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 5rem;
+    gap: 3rem;
     margin-top: 8rem;
     row-gap: 9rem;
-    padding-left: 12rem;
     color: #FCF6F5;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
 }
 
 .hero-h2{
     display: grid;
     justify-content: center;
     color: #FCF6F5;
-    padding-top: 10rem;
+    padding-top: 6rem;
     font-size: 2rem;
 }
 
 .movie {
+    display: flex;
     border-radius: 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color:#FCF6F5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     
     
+}
+
+.movie img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
 }
 
 .movie h3 {
-    font-size: 1.2rem; /* Större text för titeln */
-    margin: 10px 0 5px; /* Marginal ovanför och under */
-    color:#FCF6F5; /* Mörk textfärg */
+    font-size: 1.4rem; /* Större text för titeln */
+    margin: 0.7px 0 0.5rem; /* Marginal ovanför och under */
+    color:#990011; /* Mörk textfärg */
 }
 
 .movie p {
-    margin: 5px 0; /* Marginal mellan paragrafer */
-    font-size: 0.9rem; /* Mindre textstorlek för år och typ */
-    color:#FCF6F5; /* Ljusare textfärg */
+    margin: 0.313rem 0; /* Marginal mellan paragrafer */
+    font-size: 1.1rem; /* Mindre textstorlek för år och typ */
+    color:#990011; /* Ljusare textfärg */
 }
 
 
@@ -96,17 +111,50 @@ header{
 }
 
 button {
-    background-color:#000000;
+    background-color:#990011;
     color:#FCF6F5;
     border: none;
     padding: 10px;
     cursor: pointer;
-    border-radius: 5px;
-    margin-top: 1rem;
-    margin-right: 1rem;
+    border-radius: 1.25rem;
+    margin-bottom: 1rem;
+    padding: 1rem 3rem;
 }
 
 button:hover {
-    background-color:#FCF6F5;
-    color:#990011;
+    background-color:black;
+    color:#FCF6F5;
+}
+
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#search-results {
+    margin-left: 46.3rem;
+    max-width: 24.5rem;
+    max-height: 300px; /* Begränsa höjden så listan inte blir för lång */
+    overflow-y: auto; /* Lägger till scroll om det behövs */
+    border: solid #990011; /* Ger en snygg skuggeffekt */
+    background-color: #FCF6F5;
+    color: #990011;
+}
+
+.search-result-item {
+    padding: 0.5rem;
+    cursor: pointer;
+    border-bottom: 0.25rem solid #990011;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background-color: black;
+    color: #FCF6F5;
 }
