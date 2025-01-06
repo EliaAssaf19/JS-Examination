@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FilmSamlaren</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
-        <div>
-            <h1 class="logo">FilmSamlaren</h1>
-        </div>
-        <section class="search-container">
-            <input type="text" id="search-bar" placeholder="Sök efter filmtitel...">
-            <button id="watchlist-btn">Watchlist</button>
-        </section>
+      <div>
+        <h1 class="logo">FilmSamlaren</h1>
+      </div>
+      <section class="search-container">
+        <input
+          type="text"
+          id="search-bar"
+          placeholder="Sök efter filmtitel..."
+        />
+        <button id="watchlist-btn">Watchlist</button>
+      </section>
     </header>
 
-    <section id="search-results" style="display: none;"></section>
+    <section id="search-results" style="display: none"></section>
 
     <main>
-        <div class="hero-h2">
-            <h2>Featured Movies</h2>
-        </div>
+      <div class="hero-h2">
+        <h2>Featured Movies</h2>
+      </div>
 
-        <section id="featured-movies">         
-        </section>
-        <div id="movie-details" style="display: none; background-color: white; padding: 20px; position: fixed; top: 10%; left: 20%; width: 60%; border: 1px solid black; z-index: 100;">
-        </div>
+      <section id="featured-movies"></section>
+      <div id="movie-details"></div>
     </main>
 
-    <footer>
-
+    <footer class="footer-element">
+      <div class="footer-content">
+        <h4>&copy; FilmSamlaren</h4>
+        <p class="footer-p">"Hela Världens Filmer Samlade"</p>
+      </div>
     </footer>
+
     <script src="script.js"></script>
-</body>
-</html> 
+  </body>
+</html>

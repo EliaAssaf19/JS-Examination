@@ -1,160 +1,180 @@
 body {
-    font-family:'Trebuchet MS';
-    margin: 0;
-    padding: 0;
-    background-color: #990011;
-    color: #FCF6F5;
+  font-family: "Trebuchet MS";
+  margin: 0;
+  padding: 0;
+  background-color: #990011;
+  color: #fcf6f5;
 }
+
 /* Header Styling Start */
-header{
-    color:#990011;
-    background-color: #FCF6F5;
-    display: flex;
-    align-items: center;
-    justify-content:space-evenly;
+header {
+  color: #990011;
+  background-color: #fcf6f5;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.logo {
+  font-size: 3rem;
 }
 
 #search-bar {
-    font-family:'Trebuchet MS';
-    font-size: 1.3rem;
-    padding: 1rem 5rem;
-    border-radius: 1.5rem;
-    margin-right: 20rem;
-    background-color:#FCF6F5;
-    border-color: #990011;
-    margin-top: 1.2rem;
+  font-family: "Trebuchet MS";
+  font-size: 1.3rem;
+  padding: 1rem 5rem;
+  border-radius: 1.5rem;
+  margin-right: 20rem;
+  background-color: #fcf6f5;
+  border-color: #990011;
+  margin-top: 1rem;
 }
 
 #watchlist-btn {
-    font-family:'Trebuchet MS';
-    font-size: 1.3rem;
-    background-color: #990011;
-    color: #FCF6F5;
-    padding: 1.5rem 3rem;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
+  font-family: "Trebuchet MS";
+  font-size: 1.3rem;
+  background-color: #990011;
+  color: #fcf6f5;
+  padding: 1.5rem 3rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.logo{
-    font-size: 2.5rem;
+#search-results {
+  margin-left: 46.3rem;
+  max-width: 24.5rem;
+  max-height: 300px; 
+  overflow-y: auto; 
+  border: solid #990011;
+  background-color: #fcf6f5;
+  color: #990011;
+}
+
+.search-result-item {
+  padding: 0.5rem;
+  cursor: pointer;
+  border-bottom: 0.25rem solid #990011;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: black;
+  color: #fcf6f5;
 }
 /* Header Styling End*/
 
 /* Main Styling Start */
 #featured-movies {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 3rem;
-    margin-top: 8rem;
-    row-gap: 9rem;
-    color: #FCF6F5;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 3rem;
+  margin-top: 8rem;
+  row-gap: 9rem;
+  color: #fcf6f5;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 2rem;
 }
 
-.hero-h2{
-    display: grid;
-    justify-content: center;
-    color: #FCF6F5;
-    padding-top: 6rem;
-    font-size: 2rem;
+.hero-h2 {
+  display: grid;
+  justify-content: center;
+  color: #fcf6f5;
+  padding-top: 6rem;
+  font-size: 2rem;
 }
 
 .movie {
-    display: flex;
-    border-radius: 1rem;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    background-color:#FCF6F5;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    
-    
+  display: flex;
+  border-radius: 1rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: #fcf6f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .movie img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 1rem;
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
 }
 
 .movie h3 {
-    font-size: 1.4rem; /* Större text för titeln */
-    margin: 0.7px 0 0.5rem; /* Marginal ovanför och under */
-    color:#990011; /* Mörk textfärg */
+  font-size: 1.4rem;
+  margin: 0.7px 0 0.5rem;
+  color: #990011;
 }
 
 .movie p {
-    margin: 0.313rem 0; /* Marginal mellan paragrafer */
-    font-size: 1.1rem; /* Mindre textstorlek för år och typ */
-    color:#990011; /* Ljusare textfärg */
+  margin: 0.313rem 0;
+  font-size: 1.1rem;
+  color: #990011;
 }
+/* Main Styling End */
 
-
-
-
-
-
+/* Detailed View Styling Start */
 #movie-details {
-    box-shadow: 0 4px 8px rgba(224, 184, 184, 0.2);
-    border-radius: 8px;
-    background-color:#FCF6F5;
-    color:#990011;
+  display: none;
+  background-color: #fcf6f5;
+  padding: 20px;
+  position: fixed;
+  top: 10%;
+  left: 20%;
+  width: 60%;
+  border: 1px solid black;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(224, 184, 184, 0.2);
+  border-radius: 8px;
+  background-color: #fcf6f5;
+  color: #990011;
 }
 
 #movie-details img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
 }
 
 button {
-    background-color:#990011;
-    color:#FCF6F5;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 1.25rem;
-    margin-bottom: 1rem;
-    padding: 1rem 3rem;
+  background-color: #990011;
+  color: #fcf6f5;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 1.25rem;
+  margin-bottom: 1rem;
+  padding: 1rem 3rem;
 }
 
 button:hover {
-    background-color:black;
-    color:#FCF6F5;
+  background-color: black;
+  color: #fcf6f5;
+}
+/* Detailed View Styling End */
+
+/* Footer Styling Start */
+.footer-element {
+  background-color: #fcf6f5;
+  color: #990011;
+  text-align: center;
+  padding: 1.2rem;
+  position: relative;
 }
 
-
-.search-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+h4 {
+  font-size: 2rem;
 }
 
-#search-results {
-    margin-left: 46.3rem;
-    max-width: 24.5rem;
-    max-height: 300px; /* Begränsa höjden så listan inte blir för lång */
-    overflow-y: auto; /* Lägger till scroll om det behövs */
-    border: solid #990011; /* Ger en snygg skuggeffekt */
-    background-color: #FCF6F5;
-    color: #990011;
+.footer-p {
+  font-size: 1.5rem;
+  font-style: bold;
 }
-
-.search-result-item {
-    padding: 0.5rem;
-    cursor: pointer;
-    border-bottom: 0.25rem solid #990011;
-}
-
-.search-result-item:last-child {
-    border-bottom: none;
-}
-
-.search-result-item:hover {
-    background-color: black;
-    color: #FCF6F5;
-}
+/* Footer Styling End */

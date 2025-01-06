@@ -15,19 +15,20 @@ searchBar.addEventListener("input", async (event) => {
   }
 });
 
-// Hämta sökresultat från OMDB API
+// Hämta sökresultat från API
 async function fetchSearchMovies(query) {
   try {
     const response = await fetch(
       `https://www.omdbapi.com/?s=${query}&apikey=3a4bfb13`
     );
     if (!response.ok) {
-      throw new Error(`HTTP Error: ${response.status}`);
-    }
+        processFetchError(response.status);
+        return [];
+      }
     const data = await response.json();
     return data.Search || [];
   } catch (error) {
-    console.error("Error fetching search results:", error.message);
+    console.error("Fel vid hämtning av sökresultat:", error.message);
     return [];
   }
 }
@@ -64,25 +65,29 @@ async function fetchMovieDetails(imdbID) {
       `https://www.omdbapi.com/?i=${imdbID}&apikey=3a4bfb13`
     );
     if (!response.ok) {
-      throw new Error(`HTTP Error: ${response.status}`);
-    }
+        processFetchError(response.status);
+        return;
+      }
     const data = await response.json();
     displayMovieDetails(data);
   } catch (error) {
-    console.error("Error fetching movie details:", error.message);
+    console.error("Fel vid hämtning av filmens detaljer:", error.message);
   }
 }
 
 function getValidPoster(posterUrl) {
-    return posterUrl !== "N/A" ? posterUrl : "default-image.jpg";
-  }
+  const validUrl = posterUrl !== "N/A" ? posterUrl : "img/default-image.jpg";
+  return validUrl;
+}
 
 // Visa filmens detaljer
 function displayMovieDetails(movieDetails) {
   movieDetailsContainer.innerHTML = "";
   movieDetailsContainer.innerHTML = `
-        <h2>${movieDetails.Title}</h2>
-        <img src="${getValidPoster(movieDetails.Poster)}" alt="${movieDetails.Title} Poster">
+        <h3>${movieDetails.Title}</h3>
+        <img src="${getValidPoster(movieDetails.Poster)}" alt="${
+    movieDetails.Title
+  } Poster">
         <p><strong>År:</strong> ${movieDetails.Year}</p>
         <p><strong>Genre:</strong> ${movieDetails.Genre}</p>
         <p><strong>Regissör:</strong> ${movieDetails.Director}</p>
@@ -104,12 +109,13 @@ async function fetchAndDisplayFeaturedMovies() {
   try {
     const response = await fetch(featuredMovies);
     if (!response.ok) {
-      throw new Error(`HTTP Error: ${response.status}`);
-    }
+        processFetchError(response.status);
+        return;
+      }
     const data = await response.json();
     createFeaturedMovies(data);
   } catch (error) {
-    console.error("Error fetching featured movies:", error.message);
+    console.error("Fel vid hämtning av featured movies:", error.message);
   }
 }
 
@@ -142,4 +148,30 @@ function createFeaturedMovies(featuredData) {
   });
 }
 
-fetchAndDisplayFeaturedMovies()
+// Error hantering
+function processFetchError(statusCode) {
+    switch (statusCode) {
+        case 404:
+            console.error("Fel: Resurs hittades inte (404)");
+            displayError("Den sökta filmen kunde inte hittas. Prova med en annan titel.");
+            break;
+        case 500:
+            console.error("Fel: Internt serverfel (500)");
+            displayError("Ett internt fel har inträffat på servern. Försök igen senare.");
+            break;
+        case 503:
+            console.error("Fel: Tjänsten är otillgänglig (503)");
+            displayError("Tjänsten är för tillfället otillgänglig. Kontrollera din internetanslutning.");
+            break;
+        case 504:
+            console.error("Fel: Gateway timeout (504)");
+            displayError("Gateway-fel. Kontrollera eventuella nätverksproblem.");
+            break;
+        default:
+            console.error("Fel: Ett oväntat fel inträffade");
+            displayError("Något oväntat gick fel. Vänligen försök igen senare.");
+            break;
+    }
+}
+
+fetchAndDisplayFeaturedMovies();
