@@ -65,6 +65,19 @@ header {
   background-color: black;
   color: #fcf6f5;
 }
+
+#result-count {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color:#990011;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 /* Header Styling End*/
 
 /* Main Styling Start */

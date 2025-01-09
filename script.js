@@ -12,6 +12,7 @@ searchBar.addEventListener("input", async (event) => {
     displaySearchResults(searchResults);
   } else {
     searchResultsContainer.style.display = "none";
+    updateResultCount(0);
   }
 });
 
@@ -33,16 +34,17 @@ async function fetchSearchMovies(query) {
   }
 }
 
-// Visa sökresultat
 function displaySearchResults(searchResults) {
   searchResultsContainer.innerHTML = "";
 
   if (searchResults.length === 0) {
     searchResultsContainer.style.display = "none";
+    updateResultCount(0); // Visa 0 resultat om inget hittas
     return;
   }
 
   searchResultsContainer.style.display = "block";
+  updateResultCount(searchResults.length); // Uppdatera med antalet resultat
 
   searchResults.forEach((movie) => {
     const resultItem = document.createElement("div");
@@ -52,10 +54,18 @@ function displaySearchResults(searchResults) {
     resultItem.addEventListener("click", () => {
       fetchMovieDetails(movie.imdbID);
       searchResultsContainer.style.display = "none";
+      document.getElementById("result-count").style.display = "none"; // Dölj räknaren när en film väljs
     });
 
     searchResultsContainer.appendChild(resultItem);
   });
+}
+
+function updateResultCount(count) {
+  const resultCountElement = document.getElementById("result-count");
+  const countElement = document.getElementById("count");
+  countElement.textContent = count;
+  resultCountElement.style.display = count > 0 ? "block" : "none";
 }
 
 // Hämta filmens detaljer
